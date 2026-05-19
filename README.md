@@ -33,14 +33,14 @@ A companion **Next.js** dashboard provides insights into test metrics, flaky tes
 ## 🏗️ Architecture
 
 ```mermaid
-graph TD;
-    UI[Next.js Dashboard] -->|REST API| API[FastAPI Backend];
-    API -->|Enqueue Task| Celery[Celery Worker];
-    Celery -->|Execute| Selenium[Selenium WebDriver];
-    Selenium -->|Validate| WebApp[Target Web Application];
-    Selenium -.->|On Failure| FileSystem[Screenshot Storage];
-    Celery -->|Write Result| DB[(PostgreSQL Database)];
-    API -->|Read Data| DB;
+graph TD
+    UI["Next.js Dashboard"] -->|"REST API"| API["FastAPI Backend"]
+    API -->|"Enqueue Task"| Celery["Celery Worker"]
+    Celery -->|"Execute"| Selenium["Selenium WebDriver"]
+    Selenium -->|"Validate"| WebApp["Target Web Application"]
+    Selenium -.->|"On Failure"| FileSystem["Screenshot Storage"]
+    Celery -->|"Write Result"| DB[("PostgreSQL Database")]
+    API -->|"Read Data"| DB
 ```
 
 ## 🚀 Getting Started
